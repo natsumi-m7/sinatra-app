@@ -1,7 +1,3 @@
-<ul>
-  <li>ここにエントリが表示されるよ</li>
-  <li><%= @hello %></li>
-</ul>
 <div class = 'test'>
   <h2>投稿はこちらから</h2>
   <form method="post" action="/">
@@ -18,6 +14,12 @@
       <tr>
         <th><%= post["name"] %></th>
         <th><%= post["content"] %></th>
+        <th>
+          <form method="post" action="/#{post["id"]}">
+            <input type='hidden' value="DELETE">
+            <input type='submit' value='削除'＞
+          </form>
+        </th>
       </tr>
     <% end %>
   </table>
