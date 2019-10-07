@@ -1,0 +1,37 @@
+<ul>
+  <li>ここにエントリが表示されるよ</li>
+  <li><%= @hello %></li>
+</ul>
+<div class = 'test'>
+  <h2>投稿はこちらから</h2>
+  <form method="post" action="/">
+  <input type="text" name="content">
+  <input type="submit" value="送信">
+  </form>
+  <h2>投稿一覧</h2>
+  <table class='posts' border='1'>
+    <tr>
+      <th>投稿者</th>
+      <th>内容</th>
+    </tr>
+    <% @posts.each do |post| %>
+      <tr>
+        <th><%= post["name"] %></th>
+        <th><%= post["content"] %></th>
+      </tr>
+    <% end %>
+  </table>
+
+  <h2>ユーザー一覧</h2>
+  <table class='posts' border='1'>
+    <tr>
+      <th>NO</th>
+      <th>名前</th>
+    </tr>
+    <% @users.each_with_index do |user, i| %>
+      <tr>
+        <td><%= i + 1 %></td>
+        <td><a href="/users/#{user.id}"><%= user["name"] %></a></td>
+      </tr>
+    <% end %>
+</div>
